@@ -1,4 +1,5 @@
 <h1 align = "center" id = "project-details">📝 Project Details</h1>
+![Uploading Screenshot 2025-06-23 at 12.37.59.png…]()
 
 ## Overview
 
@@ -66,9 +67,9 @@ docker-compose up --build.
 | Create Product | Yes | :heavy_check_mark: |Works Well 
 | Get Product by Id | Yes       | :heavy_check_mark: |Works Well  |
 | Get All Products | Yes        | :heavy_check_mark:  | Works Well |
-| Delete Product| Yes | :heavy_check_mark:(partially) | Works Well |
-| Update Product| Yes | :heavy_check_mark:(partially) | Works Well |
-| Document APIs with OpenApi| Yes | :heavy_check_mark:(partially) | Works Well |
+| Delete Product| Yes | :heavy_check_mark: | Works Well |
+| Update Product| Yes | :heavy_check_mark: | Works Well |
+| Document APIs with OpenApi| Yes | :heavy_check_mark: | Works Well |
 | Add Docker and Docker Compose | Yes  |:heavy_check_mark: | Docker is well configured.
 | Add Authentication and Authorization | No  |:heavy_check_mark: | Added role based authentication with JWT and authorization
 
