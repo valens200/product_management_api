@@ -1,9 +1,9 @@
 package rw.productant.v1.product;
+
 import lombok.Getter;
 import lombok.Setter;
 import rw.productant.v1.common.entities.BaseEntity;
 import javax.persistence.*;
-
 
 @Setter
 @Getter

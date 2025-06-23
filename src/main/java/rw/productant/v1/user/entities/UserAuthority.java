@@ -1,4 +1,5 @@
 package rw.productant.v1.user.entities;
+
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.UUID;
