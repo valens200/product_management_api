@@ -11,57 +11,42 @@ import rw.productant.v1.common.payloads.ApiResponsePayload;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 
 @ControllerAdvice
 public class ExceptionsUtils {  // Global Exception Handler
+
        @ExceptionHandler(Exception.class)
-        public static  <T> ResponseEntity<ApiResponsePayload> handleControllerExceptions(Exception e) {
-           System.out.println(e);
-        if (e instanceof ChangeSetPersister.NotFoundException) {
-            return new ResponseEntity<>(new ApiResponsePayload(
-                    false,
-                    e.getMessage()
-            ), HttpStatus.NOT_FOUND);
-        } else if(e instanceof InvalidUUIdException){
-            return new ResponseEntity<>(new ApiResponsePayload(
-                    false,
-                    e.getMessage()
-            ), HttpStatus.BAD_REQUEST);
-        }else if(e instanceof NotFoundException){
-            return new ResponseEntity<>(new ApiResponsePayload(
-                    false,
-                    e.getMessage()
-            ), HttpStatus.NOT_FOUND);
-        } else if (e instanceof IllegalArgumentException){
-            return new ResponseEntity<>(new ApiResponsePayload(
-                    false,
-                    e.getMessage()
-            ), HttpStatus.BAD_REQUEST);
-        }else if (e instanceof HttpServerErrorException.InternalServerError) {
-            return new ResponseEntity<>(new ApiResponsePayload(
-                    false,
-                    e.getMessage()
-            ), HttpStatus.INTERNAL_SERVER_ERROR);
-        } else if(e instanceof BadRequestException){
-            return new ResponseEntity<>(new ApiResponsePayload(
-                    false,
-                    e.getMessage()
-            ), HttpStatus.BAD_REQUEST);
-        }else  if(e instanceof UnauthorizedException){
-            return new ResponseEntity<>(new ApiResponsePayload(
-                    false,
-                    "You are not allowed to access this resource"
-            ), HttpStatus.UNAUTHORIZED);
-        } else {
-            // Handle other exceptions as needed
-            return new ResponseEntity<>(new ApiResponsePayload(
-                    false,
-                    e.getMessage()
-            ), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+       public static <T> ResponseEntity<ApiResponsePayload> handleControllerExceptions(Exception exception) {
+           System.out.println(exception);
+
+           // Map exception classes to HttpStatus
+           Map<Class<? extends Exception>, HttpStatus> exceptionStatusMap = new LinkedHashMap<>();
+
+           // Keep all possible exceptions with their statuses
+           exceptionStatusMap.put(ChangeSetPersister.NotFoundException.class, HttpStatus.NOT_FOUND);
+           exceptionStatusMap.put(InvalidUUIdException.class, HttpStatus.BAD_REQUEST);
+           exceptionStatusMap.put(NotFoundException.class, HttpStatus.NOT_FOUND);
+           exceptionStatusMap.put(IllegalArgumentException.class, HttpStatus.BAD_REQUEST);
+           exceptionStatusMap.put(HttpServerErrorException.InternalServerError.class, HttpStatus.INTERNAL_SERVER_ERROR);
+           exceptionStatusMap.put(BadRequestException.class, HttpStatus.BAD_REQUEST);
+           exceptionStatusMap.put(UnauthorizedException.class, HttpStatus.UNAUTHORIZED);
+
+           HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;  // default fallback
+           for (Map.Entry<Class<? extends Exception>, HttpStatus> entry : exceptionStatusMap.entrySet()) {
+               if (entry.getKey().isInstance(exception)) {
+                   status = entry.getValue();
+                   break;
+               }
+           }
+           String message = (exception instanceof UnauthorizedException)
+                   ? "You are not allowed to access this resource"
+                   : exception.getMessage();
+           ApiResponsePayload payload = new ApiResponsePayload(false, message);
+           return new ResponseEntity<>(payload, status);
+       }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponsePayload> handleValidationExceptions(MethodArgumentNotValidException exception) {
@@ -85,20 +70,20 @@ public class ExceptionsUtils {  // Global Exception Handler
         );
     }
 
-    public static <T> void handleServiceExceptions(Exception e) {
-        System.out.println("Exception caught in service:");
-        if(e instanceof IllegalArgumentException){
-            throw new IllegalArgumentException(e.getMessage());
-        }else if( e instanceof NotFoundException){
-            throw new NotFoundException(e.getMessage());
-        }else if (e instanceof HttpServerErrorException) {
-            throw new InternalServerErrorException(e.getMessage());
-        } else if (e instanceof BadRequestException){
-            throw new BadRequestException(e.getMessage());
-        }else  if(e instanceof UnauthorizedException){
-            throw  new UnauthorizedException("You are not allowed to access this resource");
-        } else {
-            throw new RuntimeException("Failed!! Something went wrong " + e.getMessage(), e);
-        }
-    }
+//    public static <T> void handleServiceExceptions(Exception e) {
+//        System.out.println("Exception caught in service:");
+//        if(e instanceof IllegalArgumentException){
+//            throw new IllegalArgumentException(e.getMessage());
+//        }else if( e instanceof NotFoundException){
+//            throw new NotFoundException(e.getMessage());
+//        }else if (e instanceof HttpServerErrorException) {
+//            throw new InternalServerErrorException(e.getMessage());
+//        } else if (e instanceof BadRequestException){
+//            throw new BadRequestException(e.getMessage());
+//        }else  if(e instanceof UnauthorizedException){
+//            throw  new UnauthorizedException("You are not allowed to access this resource");
+//        } else {
+//            throw new RuntimeException("Failed!! Something went wrong " + e.getMessage(), e);
+//        }
+//    }
 }
