@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "product")
 public class Product extends BaseEntity {
-    String name;
-    String description;
-    double price;
+    private String name;
+    private String description;
+    private double price;
 }

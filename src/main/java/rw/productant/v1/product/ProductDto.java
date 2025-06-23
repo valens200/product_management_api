@@ -13,10 +13,10 @@ import javax.validation.constraints.*;
 public class ProductDto {
     @NotBlank(message = "Product Name should not be empty")
     @NotBlank(message = "Product should not be empty")
-    String name;
+    private String name;
     @NotBlank(message = "Description should not be empty")
     @NotBlank(message = "Description should not be empty")
-    String description;
+    private String description;
     @Positive(message = "The price should be a positive integer")
     @Range(min = 1, message = "Please select positive numbers Only")
     @NotNull(message = "The price is required")
