@@ -60,9 +60,9 @@ docker-compose up --build.
 
 #### The Instance can be accesed at
 
-| Instance   |                      URL                      | credentials (user : password) |
-| ---------- | :-------------------------------------------: | ----------------------------: |
-| Swagger UI | https://localhost:8080/swagger-ui/index.html  |            admin: adminADMIN! |
+| Instance   |                      URL                      | 
+| ---------- | :-------------------------------------------: | 
+| Swagger UI | https://localhost:8080/swagger-ui/index.html  |
 
 <h1 align="center" id="deliverables">👨🏻‍🏫 DELIVERABLES <img src="https://api.ezeelo.com/Scripts/QRCode/Done.gif" width="40"></h1>
 
@@ -137,7 +137,7 @@ I am genuinely excited about the opportunity to join and grow within the support
 Participating in this interview process over the past days has been a rewarding experience and a valuable journey of growth both professionally and personally. The experience was more exciting and insightful than I initially expected.
 I sincerely appreciate the opportunity and would like to thank everyone involved in the process for their time and support.
 
-In conclusion, this interview journey at Centrika marks not just a milestone but the beginning of a new chapter where I hope to contribute actively and continue learning in a thriving environment.
+In conclusion, this joining the community marks not just a milestone but the beginning of a new chapter where I hope to contribute actively and continue learning in a thriving environment.
 
 <h1 align = "center" id = "connections">🌐 Let's connect! </h1>
 
