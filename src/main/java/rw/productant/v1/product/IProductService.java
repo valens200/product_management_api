@@ -2,15 +2,16 @@ package rw.productant.v1.product;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface IProductService {
-    List<ProductEntity> getAllProducts();
+    List<Product> getAllProducts();
 
-    Optional<ProductEntity> getProductById(Long id);
+   Product getProductById(UUID id);
 
-    ProductEntity createProduct(ProductEntity product);
+    Product createProduct(ProductDto productDto);
 
-    ProductEntity updateProduct(Long id, ProductEntity productDetails);
+    Product updateProductById(UUID id, ProductDto productDto);
 
-    void deleteProduct(Long id);
+    void deleteProductById(UUID id);
 }
