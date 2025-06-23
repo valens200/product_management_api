@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface IProductRepository extends JpaRepository<ProductEntity, UUID> {
-    ProductEntity findByName(String name);
-
+public interface IProductRepository extends JpaRepository<Product, UUID> {
+    Product findByName(String name);
 }

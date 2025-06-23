@@ -53,7 +53,8 @@ public class HttpConfig {
                                 "/api/v1/auth/reset-password",
                                 "/api/v1/files/**",
                                 "/v1/api-docs/**",
-                                "/swagger-ui/**"
+                                "/swagger-ui/**",
+                                "/api/product/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

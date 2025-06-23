@@ -3,39 +3,42 @@ package rw.productant.v1.product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rw.productant.v1.common.exceptions.NotFoundException;
+import rw.productant.v1.utils.ClassMapper;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ProductServiceImplementation {
+public class ProductServiceImplementation implements IProductService{
     @Autowired
     private IProductRepository productRepository;
 
-    public List<ProductEntity> getAllProducts() {
+    public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    public ProductEntity getProductById(UUID id) {
+    public Product getProductById(UUID id) {
         return productRepository.findById(id).orElseThrow(() -> new NotFoundException("The product with the provided ID is not found"));
     }
 
-    public ProductEntity createProduct(ProductEntity product) {
-        return productRepository.save(product);
+    public Product createProduct(ProductDto productDto) {
+        Product productEntity = ClassMapper.getProductFromDTO(productDto);
+        return productRepository.save(productEntity);
     }
 
-    public ProductEntity updateProduct(UUID id, ProductEntity productDetails) {
-        ProductEntity product = productRepository.findById(id)
+    public Product updateProductById(UUID id, ProductDto productDto) {
+        Product product = productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
 
-        product.setName(productDetails.getName());
-        product.setDescription(productDetails.getDescription());
-        product.setPrice(productDetails.getPrice());
+        product.setName(productDto.getName());
+        product.setDescription(productDto.getDescription());
+        product.setPrice(productDto.getPrice());
 
         return productRepository.save(product);
     }
 
-    public void deleteProduct(UUID id) {
-        productRepository.deleteById(id);
+    public void deleteProductById(UUID id) {
+        Product productToDelete = this.getProductById(id);
+        productRepository.deleteById(productToDelete.getId());
     }
 }
