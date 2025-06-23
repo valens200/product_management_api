@@ -50,7 +50,7 @@ docker-compose up --build.
    ./mvnw install or mvn clean install
 4. Package the application:
    ```sh
-   ./mvnw clearn package
+   ./mvnw clean package
    ```  ```
     
 #### The Instance can be accesed at
