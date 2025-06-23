@@ -12,7 +12,6 @@ Productant is a simple, containerized Spring Boot REST API for managing products
 - Updating Product
 - Deleting Product
 - Reading All Products
-- User Authentication
 
 ## Technologies Used
 
@@ -50,7 +49,7 @@ docker-compose up --build.
    ./mvnw install or mvn clean install
 4. Package the application:
    ```sh
-   ./mvnw clean package
+   ./mvnw clearn package
    ```  ```
     
 #### The Instance can be accesed at
@@ -61,16 +60,16 @@ docker-compose up --build.
 
 <h1 align="center" id="deliverables">👨🏻‍🏫 DELIVERABLES <img src="https://api.ezeelo.com/Scripts/QRCode/Done.gif" width="40"></h1>
 
-| Tasks   | Requested | Completed     | Remarks    |
-| :---:       |    :----:   |    :---:      |    :---:      |
-| Create Product | Yes | :heavy_check_mark: |Works Well 
-| Get Product by Id | Yes       | :heavy_check_mark: |Works Well  |
-| Get All Products | Yes        | :heavy_check_mark:  | Works Well |
-| Delete Product| Yes | :heavy_check_mark: | Works Well |
-| Update Product| Yes | :heavy_check_mark: | Works Well |
-| Document APIs with OpenApi| Yes | :heavy_check_mark: | Works Well |
+|             Tasks             | Requested | Completed     | Remarks    |
+|:-----------------------------:|    :----:   |    :---:      |    :---:      |
+|        Create Product         | Yes | :heavy_check_mark: |Works Well 
+|       Get Product by Id       | Yes       | :heavy_check_mark: |Works Well  |
+|       Get All Products        | Yes        | :heavy_check_mark:  | Works Well |
+|        Delete Product         | Yes | :heavy_check_mark:(partially) | Works Well |
+|        Update Product         | Yes | :heavy_check_mark:(partially) | Works Well |
+|  Document APIs with OpenApi   | Yes | :heavy_check_mark:(partially) | Works Well |
 | Add Docker and Docker Compose | Yes  |:heavy_check_mark: | Docker is well configured.
-| Add Authentication and Authorization | No  |:heavy_check_mark: | Added role based authentication with JWT and authorization
+|    Security Configuration     | No  |:heavy_check_mark: | Added Security Configuration with Spring Security and JWT
 
 ## Project Dependencies and Justification
 
@@ -128,12 +127,12 @@ This section outlines the key frameworks and libraries that I used in this Sprin
 
 <p align="justify">
 
-I am genuinely excited about the opportunity to join and grow within the supportive and innovative community. I look forward to receiving feedback on my technical assignment and hope to contribute positively to the team.
+I am genuinely excited about the opportunity to join and grow within the supportive and innovative community at Centrika. I look forward to receiving feedback on my technical assignment and hope to contribute positively to the team.
 
 Participating in this interview process over the past days has been a rewarding experience and a valuable journey of growth both professionally and personally. The experience was more exciting and insightful than I initially expected.
 I sincerely appreciate the opportunity and would like to thank everyone involved in the process for their time and support.
 
-In conclusion, this interview journey marks not just a milestone but the beginning of a new chapter where I hope to contribute actively and continue learning in a thriving environment.
+In conclusion, this interview journey at Centrika marks not just a milestone but the beginning of a new chapter where I hope to contribute actively and continue learning in a thriving environment.
 
 
 <h1 align = "center" id = "connections">🌐 Let's connect! </h1>
