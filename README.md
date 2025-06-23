@@ -12,7 +12,6 @@ Productant is a simple, containerized Spring Boot REST API for managing products
 - Updating Product
 - Deleting Product
 - Reading All Products
-- User Authentication
 
 ## Technologies Used
 
@@ -61,16 +60,16 @@ docker-compose up --build.
 
 <h1 align="center" id="deliverables">👨🏻‍🏫 DELIVERABLES <img src="https://api.ezeelo.com/Scripts/QRCode/Done.gif" width="40"></h1>
 
-| Tasks   | Requested | Completed     | Remarks    |
-| :---:       |    :----:   |    :---:      |    :---:      |
-| Create Product | Yes | :heavy_check_mark: |Works Well 
-| Get Product by Id | Yes       | :heavy_check_mark: |Works Well  |
-| Get All Products | Yes        | :heavy_check_mark:  | Works Well |
-| Delete Product| Yes | :heavy_check_mark:(partially) | Works Well |
-| Update Product| Yes | :heavy_check_mark:(partially) | Works Well |
-| Document APIs with OpenApi| Yes | :heavy_check_mark:(partially) | Works Well |
+|             Tasks             | Requested | Completed     | Remarks    |
+|:-----------------------------:|    :----:   |    :---:      |    :---:      |
+|        Create Product         | Yes | :heavy_check_mark: |Works Well 
+|       Get Product by Id       | Yes       | :heavy_check_mark: |Works Well  |
+|       Get All Products        | Yes        | :heavy_check_mark:  | Works Well |
+|        Delete Product         | Yes | :heavy_check_mark:(partially) | Works Well |
+|        Update Product         | Yes | :heavy_check_mark:(partially) | Works Well |
+|  Document APIs with OpenApi   | Yes | :heavy_check_mark:(partially) | Works Well |
 | Add Docker and Docker Compose | Yes  |:heavy_check_mark: | Docker is well configured.
-| Add Authentication and Authorization | No  |:heavy_check_mark: | Added role based authentication with JWT and authorization
+|    Security Configuration     | No  |:heavy_check_mark: | Added Security Configuration with Spring Security and JWT
 
 ## Project Dependencies and Justification
 
