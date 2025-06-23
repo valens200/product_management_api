@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface IProductService {
+interface IProductService {
     List<Product> getAllProducts();
 
    Product getProductById(UUID id);

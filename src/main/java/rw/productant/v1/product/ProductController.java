@@ -13,7 +13,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/products")
 @Slf4j
-public class ProductController {
+class ProductController {
 
     @Autowired
     private ProductServiceImplementation productService;

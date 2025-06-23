@@ -10,7 +10,7 @@ import javax.validation.constraints.*;
 
 @Getter
 @Setter
-public class ProductDto {
+class ProductDto {
     @NotBlank(message = "Product Name should not be empty")
     @NotBlank(message = "Product should not be empty")
     private String name;

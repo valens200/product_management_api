@@ -54,7 +54,7 @@ public class HttpConfig {
                                 "/api/v1/files/**",
                                 "/v1/api-docs/**",
                                 "/swagger-ui/**",
-                                "/api/product/**"
+                                "/api/products/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
