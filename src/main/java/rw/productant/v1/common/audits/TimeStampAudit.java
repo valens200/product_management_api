@@ -22,7 +22,7 @@ public abstract class TimeStampAudit implements Serializable {
     @CreationTimestamp
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name="created_at")
-    private LocalDateTime dateTime;
+    private LocalDateTime createdAt;
 
     @UpdateTimestamp
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
