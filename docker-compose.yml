@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-database
+    restart: always
+    ports:
+      - '5433:5432'
+    environment:
+      - POSTGRES_USER=centrika
+      - POSTGRES_PASSWORD=BNEAP1fkA7YbWOmWr8OaaQm828vCqtqx7gTHaMlW
+      - POSTGRES_DB=product_management_db
+    volumes:
+      - shared-db-data:/var/lib/postgresql/data
+    networks:
+      - shared
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U centrika -d product_management_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  core-service:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/product_management_db
+      - SPRING_DATASOURCE_USERNAME=centrika
+      - SPRING_DATASOURCE_PASSWORD=BNEAP1fkA7YbWOmWr8OaaQm828vCqtqx7gTHaMlW
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    ports:
+      - '8000:8000'
+    networks:
+      - shared
+
+volumes:
+  shared-db-data:
+
+networks:
+  shared:
