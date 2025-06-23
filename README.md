@@ -1,6 +1,4 @@
 <h1 align = "center" id = "project-details">📝 Project Details</h1>
-![Uploading Screenshot 2025-06-23 at 12.37.59.png…]()
-
 
 ## Overview
 
