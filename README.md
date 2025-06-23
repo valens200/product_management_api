@@ -16,14 +16,16 @@ Productant is a simple, containerized Spring Boot REST API for managing products
 ## Technologies Used
 
 - **Java**: Version 8
-- **Spring Boot**:  Version 2.7.18
+- **Spring Boot**: Version 2.7.18
 - **Database**: PostgreSQL
 
 ## Prerequisites
+
 - Java Development Kit (JDK Version 8)
 - PostgreSQL
 - Git
 - Docker
+
 ### Running the application
 
 ### Using Docker
@@ -47,29 +49,33 @@ docker-compose up --build.
 3. Install dependencies:
    ```sh
    ./mvnw install or mvn clean install
+   ```
 4. Package the application:
-   ```sh
+
+   ````sh
    ./mvnw clearn package
    ```  ```
-    
+
+   ````
+
 #### The Instance can be accesed at
 
-| Instance  |     URL       | credentials (user : password)|
-|---------- |:-------------:|------:                       |
-| Swagger UI   |  https://localhost:8080/swagger-ui/index.html  | admin: adminADMIN! |
+| Instance   |                      URL                      | credentials (user : password) |
+| ---------- | :-------------------------------------------: | ----------------------------: |
+| Swagger UI | https://localhost:8080/swagger-ui/index.html  |            admin: adminADMIN! |
 
 <h1 align="center" id="deliverables">👨🏻‍🏫 DELIVERABLES <img src="https://api.ezeelo.com/Scripts/QRCode/Done.gif" width="40"></h1>
 
-|             Tasks             | Requested | Completed     | Remarks    |
-|:-----------------------------:|    :----:   |    :---:      |    :---:      |
-|        Create Product         | Yes | :heavy_check_mark: |Works Well 
-|       Get Product by Id       | Yes       | :heavy_check_mark: |Works Well  |
-|       Get All Products        | Yes        | :heavy_check_mark:  | Works Well |
-|        Delete Product         | Yes | :heavy_check_mark:(partially) | Works Well |
-|        Update Product         | Yes | :heavy_check_mark:(partially) | Works Well |
-|  Document APIs with OpenApi   | Yes | :heavy_check_mark:(partially) | Works Well |
-| Add Docker and Docker Compose | Yes  |:heavy_check_mark: | Docker is well configured.
-|    Security Configuration     | No  |:heavy_check_mark: | Added Security Configuration with Spring Security and JWT
+|             Tasks             | Requested |     Completed      |                          Remarks                          |
+| :---------------------------: | :-------: | :----------------: | :-------------------------------------------------------: |
+|        Create Product         |    Yes    | :heavy_check_mark: |                        Works Well                         |
+|       Get Product by Id       |    Yes    | :heavy_check_mark: |                        Works Well                         |
+|       Get All Products        |    Yes    | :heavy_check_mark: |                        Works Well                         |
+|        Delete Product         |    Yes    | :heavy_check_mark: |                        Works Well                         |
+|        Update Product         |    Yes    | :heavy_check_mark: |                        Works Well                         |
+|  Document APIs with OpenApi   |    Yes    | :heavy_check_mark: |                        Works Well                         |
+| Add Docker and Docker Compose |    Yes    | :heavy_check_mark: |                Docker is well configured.                 |
+|    Security Configuration     |    No     | :heavy_check_mark: | Added Security Configuration with Spring Security and JWT |
 
 ## Project Dependencies and Justification
 
@@ -118,11 +124,10 @@ This section outlines the key frameworks and libraries that I used in this Sprin
 - **lombok** (optional)  
   I just used Lombok for generateing boilerplate code such as getters, setters, constructors, and builders at compile-time, making code more concise and readable.
 
-
 ## Documentation
 
 - **org.springdoc:springdoc-openapi-ui**  
-  To Automatically generate Swagger documentation for REST APIs, I used OpenAPI so that I make a visual presentation and documentation of application's APIs.
+ To Automatically generate Swagger documentation for REST APIs, I used OpenAPI so that I make a visual presentation and documentation of application's APIs.
 <h1  id = "acknowledgements">Acknowledgements</h1>
 
 <p align="justify">
@@ -134,10 +139,7 @@ I sincerely appreciate the opportunity and would like to thank everyone involved
 
 In conclusion, this interview journey at Centrika marks not just a milestone but the beginning of a new chapter where I hope to contribute actively and continue learning in a thriving environment.
 
-
 <h1 align = "center" id = "connections">🌐 Let's connect! </h1>
-
-
 
 - [LinkedIn](https://www.linkedin.com/in/valens-niyonsenga-947440228/)
 
