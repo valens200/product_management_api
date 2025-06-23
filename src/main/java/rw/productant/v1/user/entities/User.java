@@ -1,4 +1,5 @@
 package rw.productant.v1.user.entities;
+
 import lombok.Getter;
 import lombok.Setter;
 import rw.productant.v1.user.enums.EAccountStatus;
@@ -10,7 +11,7 @@ import java.util.UUID;
 @Getter
 @Entity
 @Table(name = "users")
-public class User  {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -21,13 +22,14 @@ public class User  {
 
     private EAccountStatus status = EAccountStatus.ACTIVE;
 
-    public User(){}
+    public User() {
+    }
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    public User(String email, String password){
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
     }

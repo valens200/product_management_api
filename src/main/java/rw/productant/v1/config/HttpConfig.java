@@ -1,4 +1,5 @@
 package rw.productant.v1.config;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -29,7 +30,8 @@ public class HttpConfig {
     private UserSecurityDetailsService userSecurityDetailsService;
 
     @Autowired
-    public HttpConfig(CustomAutError customAutError, JwtAuthentivationFilter authFilter, UserSecurityDetailsService securityDetailsService){
+    public HttpConfig(CustomAutError customAutError, JwtAuthentivationFilter authFilter,
+            UserSecurityDetailsService securityDetailsService) {
         this.authError = customAutError;
         this.authFilter = authFilter;
         this.userSecurityDetailsService = securityDetailsService;
@@ -40,7 +42,6 @@ public class HttpConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf((csrf) -> csrf.disable()) // Disable CSRF protection
                 .authorizeHttpRequests(req -> req
-                        .antMatchers("/api/v1/auth/**","/api/v1/users/admin/create").permitAll()
                         .antMatchers(
                                 "/v2/api-docs",
                                 "/configuration/ui",
@@ -54,10 +55,9 @@ public class HttpConfig {
                                 "/api/v1/files/**",
                                 "/v1/api-docs/**",
                                 "/swagger-ui/**",
-                                "/api/products/**"
-                        ).permitAll()
-                        .anyRequest().authenticated()
-                )
+                                "/api/products/**")
+                        .permitAll()
+                        .anyRequest().authenticated())
                 .sessionManagement(sessionManagement -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(authError))
@@ -67,7 +67,7 @@ public class HttpConfig {
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider(){
+    public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setUserDetailsService(userDetailsService());
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
@@ -76,13 +76,13 @@ public class HttpConfig {
 
     // Bean definition for BCryptPasswordEncoder
     @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     // Bean definition for UserDetailsService
     @Bean
-    public UserDetailsService userDetailsService(){
+    public UserDetailsService userDetailsService() {
         return userSecurityDetailsService::loadUserByUsername; // Return UserDetailsService implementation
     }
 }

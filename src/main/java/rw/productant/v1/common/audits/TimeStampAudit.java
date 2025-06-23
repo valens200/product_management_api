@@ -20,12 +20,12 @@ import java.time.LocalDateTime;
 public abstract class TimeStampAudit implements Serializable {
     private static final long serialVersionUID = 1L;
     @CreationTimestamp
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @Column(name="created_at")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @Column(name="updated_at")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "updated_at")
     private LocalDateTime lastUpdateDateTime;
 }

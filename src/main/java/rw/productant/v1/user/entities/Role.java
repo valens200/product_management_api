@@ -1,4 +1,5 @@
 package rw.productant.v1.user.entities;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;

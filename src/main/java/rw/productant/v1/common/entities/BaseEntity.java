@@ -1,4 +1,5 @@
 package rw.productant.v1.common.entities;
+
 import lombok.Getter;
 import lombok.Setter;
 import rw.productant.v1.common.audits.TimeStampAudit;

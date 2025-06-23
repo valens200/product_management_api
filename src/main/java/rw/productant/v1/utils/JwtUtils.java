@@ -1,4 +1,5 @@
 package rw.productant.v1.utils;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -27,20 +28,20 @@ public class JwtUtils {
     private static final String CLAIM_KEY_EMAIL = "email";
     private static final String CLAIM_KEY_ROLE = "role";
 
-    public String extractUsername(String token){
-        return extractClaim(token , Claims::getSubject);
+    public String extractUsername(String token) {
+        return extractClaim(token, Claims::getSubject);
     }
 
-    public Date extractExpiration(String token){
-        return extractClaim(token , Claims::getExpiration);
+    public Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
     }
 
-    public boolean hasClaim(String token , String claimName ){
+    public boolean hasClaim(String token, String claimName) {
         final Claims claims = extractAllClaims(token);
         return claims.get(claimName) != null;
     }
 
-    public <T> T extractClaim(String token , Function<Claims , T> claimsResolver){
+    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
@@ -49,28 +50,28 @@ public class JwtUtils {
         return Jwts.parser().setSigningKey(jwtSecretKey).parseClaimsJws(token).getBody();
     }
 
-    public Boolean isTokenExpired(String token){
+    public Boolean isTokenExpired(String token) {
         Date expirationDate = extractExpiration(token);
-        Date currentTime  = new Date(System.currentTimeMillis());
-        if(currentTime.before(expirationDate)){
+        Date currentTime = new Date(System.currentTimeMillis());
+        if (currentTime.before(expirationDate)) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
 
-    public String createToken(UUID userId , String email , List<String> roles){
+    public String createToken(UUID userId, String email, List<String> roles) {
 
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE , 1);
+        calendar.add(Calendar.DATE, 1);
 
-        return  Jwts.builder()
-                .claim(CLAIM_KEY_USER_ID , userId)
-                .claim(CLAIM_KEY_EMAIL , email)
-                .claim(CLAIM_KEY_ROLE , roles)
+        return Jwts.builder()
+                .claim(CLAIM_KEY_USER_ID, userId)
+                .claim(CLAIM_KEY_EMAIL, email)
+                .claim(CLAIM_KEY_ROLE, roles)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(calendar.getTime())
-                .signWith(SignatureAlgorithm.HS256 , jwtSecretKey).compact();
+                .signWith(SignatureAlgorithm.HS256, jwtSecretKey).compact();
     }
 
     public JwtUserInfo decodeToken(String token) throws JWTVerificationException {
@@ -85,12 +86,11 @@ public class JwtUtils {
                 .setUserId(userId);
     }
 
-
-    public static String hashPassword(String password){
+    public static String hashPassword(String password) {
         return passwordEncoder.encode(password);
     }
 
-    public Boolean isTokenValid(String token , UserSecurityDetails userSecurityDetails){
+    public Boolean isTokenValid(String token, UserSecurityDetails userSecurityDetails) {
         Claims claims = extractAllClaims(token);
         String email = (String) claims.get(CLAIM_KEY_EMAIL);
         final String username = email;

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-class ProductServiceImplementation implements IProductService{
+class ProductServiceImplementation implements IProductService {
     @Autowired
     private IProductRepository productRepository;
 
@@ -19,12 +19,14 @@ class ProductServiceImplementation implements IProductService{
     }
 
     public Product getProductById(UUID id) {
-        return productRepository.findById(id).orElseThrow(() -> new NotFoundException("The product with the provided ID is not found"));
+        return productRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("The product with the provided ID is not found"));
     }
 
     public Product createProduct(ProductDto productDto) {
         boolean productExists = productRepository.existsByName(productDto.getName());
-        if(productExists) throw new ConflictException("The product with the same already exists");
+        if (productExists)
+            throw new ConflictException("The product with the same already exists");
         Product productEntity = ClassMapper.getProductFromDTO(productDto);
         return productRepository.save(productEntity);
     }
