@@ -34,7 +34,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=BNEAP1fkA7YbWOmWr8OaaQm828vCqtqx7gTHaMlW
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     ports:
-      - '8000:8000'
+      - '8080:8080'
     networks:
       - shared
 
