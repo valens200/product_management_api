@@ -132,7 +132,7 @@ This section outlines the key frameworks and libraries that I used in this Sprin
 
 <p align="justify">
 
-I am genuinely excited about the opportunity to join and grow within the supportive and innovative community at Centrika. I look forward to receiving feedback on my technical assignment and hope to contribute positively to the team.
+I am genuinely excited about the opportunity to join and grow within the supportive and innovative community. I look forward to receiving feedback on my technical assignment and hope to contribute positively to the team.
 
 Participating in this interview process over the past days has been a rewarding experience and a valuable journey of growth both professionally and personally. The experience was more exciting and insightful than I initially expected.
 I sincerely appreciate the opportunity and would like to thank everyone involved in the process for their time and support.
